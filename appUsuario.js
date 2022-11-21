@@ -10,7 +10,7 @@ async function main() {
         const usuaior_1 = await usuarioNegocio.buscarPorId(1);
         console.log("Usuário 1", usuario_1);
     } catch (err) {                                                                           
-        console.log("Erro", err);
+        console.log("Erro", err); 
     }
 
     try{ 
