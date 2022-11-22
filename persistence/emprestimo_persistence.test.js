@@ -5,8 +5,7 @@ test ('Buscar Por Id 2 deve retornar Emprestimo 2',
     function() {
         let Emprestimo2 = {
             id:2, 
-            nome:"Emprestimo 2", 
-            preco:20
+            nome:"Emprestimo 2"
         };
 
         expect(cadastro.buscarPorId(2))
