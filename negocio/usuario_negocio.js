@@ -19,7 +19,7 @@ async function listar() {
 async function buscarPorId(id) {
     const produto = await usuarioPersistence.buscarPorId(id);
     if(!produto) {
-        throw { id: 404, mensagem: `Produto ${id} nao encontrado`};
+        throw { id: 404, mensagem: `Usuário ${id} nao encontrado`};
     }
     return produto;
 }

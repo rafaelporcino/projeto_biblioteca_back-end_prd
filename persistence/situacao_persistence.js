@@ -27,7 +27,7 @@ async function inserir(situacao) {
 async function buscarPorId(id) {
     const cliente = new Client(conexao)
     await cliente.connect();
-    const res = await cliente.query('SELECT situacao.id,situacao.descricao  WHERE situacao.id=$1',[id]);
+    const res = await cliente.query('SELECT situacao.id,situacao.descricao from situacao WHERE situacao.id=$1',[id]);
     await cliente.end();
     return res.rows[0];
 }
@@ -35,7 +35,7 @@ async function buscarPorId(id) {
 async function buscarPorNome(nome) {
     const cliente = new Client(conexao)
     await cliente.connect();
-    const res = await cliente.query('SELECT situacao.id,situacao.descricao WHERE situacao.descricao=$1',[nome]);
+    const res = await cliente.query('SELECT situacao.id,situacao.descricao from situacao WHERE situacao.descricao=$1',[nome]);
     await cliente.end();
     return res.rows;
 }

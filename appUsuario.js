@@ -7,7 +7,7 @@ async function main() {
     console.log("Lista de Usuários",listaUsuario);
  
     try{ 
-        const usuaior_1 = await usuarioNegocio.buscarPorId(1);
+        const usuario_1 = await usuarioNegocio.buscarPorId(1);
         console.log("Usuário 1", usuario_1);
     } catch (err) {                                                                           
         console.log("Erro", err); 
@@ -15,7 +15,7 @@ async function main() {
 
     try{ 
         const usuario_2 = await usuarioNegocio.buscarPorId(2);
-        console.log("Empretimo 2 = ", usuario_2);
+        console.log("Usuário 2 = ", usuario_2);
     } catch (err) {
         console.log("Erro", err);
     }
