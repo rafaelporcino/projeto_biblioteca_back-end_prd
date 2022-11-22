@@ -1,11 +1,11 @@
 const {validarAutor} = require('./autor_validacao')
-const produtoPersistence = require('../persistence/autor_persistence')
+const autorPersistence = require('../persistence/autor_persistence')
 
 
-async function inserir(produto) {
-    if(produto && produto.nome && produto.preco){
-        const produtoInserido = await produtoPersistence.inserir(produto);
-        return produtoInserido;
+async function inserir(autor) {
+    if(autor && autor.nome && autor.preco){
+        const autorInserido = await autorPersistence.inserir(autor);
+        return autorInserido;
     }
     else {
         throw { id: 400, mensagem: "Falta parametros"};
@@ -13,29 +13,29 @@ async function inserir(produto) {
 }
 
 async function listar() {
-    return await produtoPersistence.listar();
+    return await autorPersistence.listar();
 }
 
 async function buscarPorId(id) {
-    const produto = await produtoPersistence.buscarPorId(id);
-    if(!produto) {
-        throw { id: 404, mensagem: `Produto ${id} nao encontrado`};
+    const autor = await autorPersistence.buscarPorId(id);
+    if(!autor) {
+        throw { id: 404, mensagem: `autor ${id} nao encontrado`};
     }
-    return produto;
+    return autor;
 }
 
 async function buscarPorNome(nome) {
     if(!nome) {
         throw { id: 400, mensagem: "Falta parametro nome"};
     }
-    return await produtoPersistence.buscarPorNome(nome);
+    return await autorPersistence.buscarPorNome(nome);
 }
 
-async function atualizar(id, produto) {
-    if(validarEmprestimo(produto)) {
-        const produtoAtualizar = await buscarPorId(id);
-        if(produtoAtualizar)
-            return await produtoPersistence.atualizar(id, produto);
+async function atualizar(id, autor) {
+    if(validarEmprestimo(autor)) {
+        const autorAtualizar = await buscarPorId(id);
+        if(autorAtualizar)
+            return await autorPersistence.atualizar(id, autor);
 
     }
     else {
@@ -44,9 +44,9 @@ async function atualizar(id, produto) {
 }
 
 async function deletar(id) {
-    const produtoDeletar = await buscarPorId(id);
-    if(produtoDeletar)
-        return await produtoPersistence.deletar(id);
+    const autorDeletar = await buscarPorId(id);
+    if(autorDeletar)
+        return await autorPersistence.deletar(id);
 }
 
 module.exports = {

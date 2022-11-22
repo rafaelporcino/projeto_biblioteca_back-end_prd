@@ -1,11 +1,11 @@
 const {validarEmprestimo} = require('./emprestimo_validacao')
-const produtoPersistence = require('../persistence/emprestimo_persistence')
+const emprestimoPersistence = require('../persistence/emprestimo_persistence')
 
 
-async function inserir(produto) {
-    if(produto && produto.nome && produto.preco){
-        const produtoInserido = await produtoPersistence.inserir(produto);
-        return produtoInserido;
+async function inserir(emprestimo) {
+    if(emprestimo && emprestimo.nome && emprestimo.preco){
+        const emprestimoInserido = await emprestimoPersistence.inserir(emprestimo);
+        return emprestimoInserido;
     }
     else {
         throw { id: 400, mensagem: "Falta parametros"};
@@ -13,29 +13,29 @@ async function inserir(produto) {
 }
 
 async function listar() {
-    return await produtoPersistence.listar();
+    return await emprestimoPersistence.listar();
 }
 
 async function buscarPorId(id) {
-    const produto = await produtoPersistence.buscarPorId(id);
-    if(!produto) {
-        throw { id: 404, mensagem: `Produto ${id} nao encontrado`};
+    const emprestimo = await emprestimoPersistence.buscarPorId(id);
+    if(!emprestimo) {
+        throw { id: 404, mensagem: `emprestimo ${id} nao encontrado`};
     }
-    return produto;
+    return emprestimo;
 }
 
 async function buscarPorNome(nome) {
     if(!nome) {
         throw { id: 400, mensagem: "Falta parametro nome"};
     }
-    return await produtoPersistence.buscarPorNome(nome);
+    return await emprestimoPersistence.buscarPorNome(nome);
 }
 
-async function atualizar(id, produto) {
-    if(validarEmprestimo(produto)) {
-        const produtoAtualizar = await buscarPorId(id);
-        if(produtoAtualizar)
-            return await produtoPersistence.atualizar(id, produto);
+async function atualizar(id, emprestimo) {
+    if(validarEmprestimo(emprestimo)) {
+        const emprestimoAtualizar = await buscarPorId(id);
+        if(emprestimoAtualizar)
+            return await emprestimoPersistence.atualizar(id, emprestimo);
 
     }
     else {
@@ -44,9 +44,9 @@ async function atualizar(id, produto) {
 }
 
 async function deletar(id) {
-    const produtoDeletar = await buscarPorId(id);
-    if(produtoDeletar)
-        return await produtoPersistence.deletar(id);
+    const emprestimoDeletar = await buscarPorId(id);
+    if(emprestimoDeletar)
+        return await emprestimoPersistence.deletar(id);
 }
 
 module.exports = {
