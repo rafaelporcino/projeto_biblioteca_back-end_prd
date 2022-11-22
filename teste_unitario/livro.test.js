@@ -1,20 +1,19 @@
 const cadastro = require("./persistence/livro_persistence")
 
 //Cenario de Sucesso!
-test ('Buscar Por Id 2 deve retornar Produto 2',
+test ('Buscar Por Id 2 deve retornar Livro 2',
     function() {
-        let produto2 = {
+        let Livro2 = {
             id:2, 
-            nome:"Produto 2", 
-            preco:20
+            nome:"Livro 2"
         };
 
         expect(cadastro.buscarPorId(2))
-            .toEqual(produto2);
+            .toEqual(Livro2);
     }
 )
 
-//Cenario de Insucesso - Não existe produto 6!
+//Cenario de Insucesso - Não existe Livro 6!
 test ('Buscar Por Id 6 deve gerar exceção id nao encontrado',
     function() {
         const errIdNaoEncontrado = "ID nao encontrado";
@@ -23,25 +22,25 @@ test ('Buscar Por Id 6 deve gerar exceção id nao encontrado',
     }
 )
 
-test ('Inserir Produto 4 deve ser inserido na lista com id 4 gerado',
+test ('Inserir Livro 4 deve ser inserido na lista com id 4 gerado',
     function() {
-        const produtoInserir = {nome:"Produto 4", preco:40};
-        cadastro.inserir(produtoInserir);
+        const LivroInserir = {nome:"Livro 4"};
+        cadastro.inserir(LivroInserir);
         expect(cadastro.listar())
             .toEqual(listaInseridoEsperado);
     })
 
 //Cenário de Sucesso
-test ('Alterar Produto com id 1 para nome "Produto X" e preco 100 deve atualizar na lista',
+test ('Alterar Livro com id 1 para nome "Livro X" deve atualizar na lista',
     function() {
-        const produtoAtualizadoEsperado = {id:1, nome:"Produto X", preco:100};
-        const produtoAtualizar = {nome:"Produto X", preco:100};
+        const LivroAtualizadoEsperado = {id:1, nome:"Livro X"};
+        const LivroAtualizar = {nome:"Livro X"};
         const idAtualizar = 1;
 
-        cadastro.atualizar(idAtualizar, produtoAtualizar);
+        cadastro.atualizar(idAtualizar, LivroAtualizar);
 
         expect(cadastro.buscarPorId(1))
-            .toEqual(produtoAtualizadoEsperado);
+            .toEqual(LivroAtualizadoEsperado);
 
         expect(cadastro.listar())
             .toEqual(listaAtualizadoEsperado);
@@ -49,21 +48,20 @@ test ('Alterar Produto com id 1 para nome "Produto X" e preco 100 deve atualizar
     }
 )
 
-//Cenario de Insucesso - Não existe produto 6!
-test ('Atualizar o produto com Id 6 deve gerar exceção id nao encontrado',
+//Cenario de Insucesso - Não existe Livro 6!
+test ('Atualizar o Livro com Id 6 deve gerar exceção id nao encontrado',
     function() {
-        const produtoAtualizar = {
-            nome:"Produto 6", 
-            preco:600
+        const LivroAtualizar = {
+            nome:"Livro 6"
         };
         const errIdNaoEncontrado = "ID nao encontrado";
-        expect(() => cadastro.atualizar(6, produtoAtualizar))
+        expect(() => cadastro.atualizar(6, LivroAtualizar))
             .toThrow(errIdNaoEncontrado);
     }
 )
 
 //Cenário de Sucesso
-test ('Deletar o produto com id 1 deve remover tal produto da lista',
+test ('Deletar o Livro com id 1 deve remover tal Livro da lista',
     function() {
         cadastro.deletar(1);
         expect(cadastro.listar())
@@ -71,8 +69,8 @@ test ('Deletar o produto com id 1 deve remover tal produto da lista',
     }
 )
 
-//Cenario de Insucesso - Não existe produto 6!
-test ('Deletar o produto com Id 6 deve gerar exceção id nao encontrado',
+//Cenario de Insucesso - Não existe Livro 6!
+test ('Deletar o Livro com Id 6 deve gerar exceção id nao encontrado',
     function() {
         const errIdNaoEncontrado = "ID nao encontrado";
         expect(() => cadastro.deletar(6))

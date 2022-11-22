@@ -5,8 +5,7 @@ test ('Buscar Por Id 2 deve retornar Usuario 2',
     function() {
         let Usuario2 = {
             id:2, 
-            nome:"Usuario 2", 
-            preco:20
+            nome:"Usuario 2"
         };
 
         expect(cadastro.buscarPorId(2))
@@ -25,17 +24,17 @@ test ('Buscar Por Id 6 deve gerar exceção id nao encontrado',
 
 test ('Inserir Usuario 4 deve ser inserido na lista com id 4 gerado',
     function() {
-        const UsuarioInserir = {nome:"Usuario 4", preco:40};
+        const UsuarioInserir = {nome:"Usuario 4"};
         cadastro.inserir(UsuarioInserir);
         expect(cadastro.listar())
             .toEqual(listaInseridoEsperado);
     })
 
 //Cenário de Sucesso
-test ('Alterar Usuario com id 1 para nome "Usuario X" e preco 100 deve atualizar na lista',
+test ('Alterar Usuario com id 1 para nome "Usuario X" deve atualizar na lista',
     function() {
-        const UsuarioAtualizadoEsperado = {id:1, nome:"Usuario X", preco:100};
-        const UsuarioAtualizar = {nome:"Usuario X", preco:100};
+        const UsuarioAtualizadoEsperado = {id:1, nome:"Usuario X"};
+        const UsuarioAtualizar = {nome:"Usuario X"};
         const idAtualizar = 1;
 
         cadastro.atualizar(idAtualizar, UsuarioAtualizar);
@@ -53,8 +52,7 @@ test ('Alterar Usuario com id 1 para nome "Usuario X" e preco 100 deve atualizar
 test ('Atualizar o Usuario com Id 6 deve gerar exceção id nao encontrado',
     function() {
         const UsuarioAtualizar = {
-            nome:"Usuario 6", 
-            preco:600
+            nome:"Usuario 6"
         };
         const errIdNaoEncontrado = "ID nao encontrado";
         expect(() => cadastro.atualizar(6, UsuarioAtualizar))

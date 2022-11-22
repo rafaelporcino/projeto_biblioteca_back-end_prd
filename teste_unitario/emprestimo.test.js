@@ -25,17 +25,17 @@ test ('Buscar Por Id 6 deve gerar exceção id nao encontrado',
 
 test ('Inserir Emprestimo 4 deve ser inserido na lista com id 4 gerado',
     function() {
-        const EmprestimoInserir = {nome:"Emprestimo 4", preco:40};
+        const EmprestimoInserir = {nome:"Emprestimo 4"};
         cadastro.inserir(EmprestimoInserir);
         expect(cadastro.listar())
             .toEqual(listaInseridoEsperado);
     })
 
 //Cenário de Sucesso
-test ('Alterar Emprestimo com id 1 para nome "Emprestimo X" e preco 100 deve atualizar na lista',
+test ('Alterar Emprestimo com id 1 para nome "Emprestimo X"  deve atualizar na lista',
     function() {
-        const EmprestimoAtualizadoEsperado = {id:1, nome:"Emprestimo X", preco:100};
-        const EmprestimoAtualizar = {nome:"Emprestimo X", preco:100};
+        const EmprestimoAtualizadoEsperado = {id:1, nome:"Emprestimo X"};
+        const EmprestimoAtualizar = {nome:"Emprestimo X"};
         const idAtualizar = 1;
 
         cadastro.atualizar(idAtualizar, EmprestimoAtualizar);
@@ -53,8 +53,7 @@ test ('Alterar Emprestimo com id 1 para nome "Emprestimo X" e preco 100 deve atu
 test ('Atualizar o Emprestimo com Id 6 deve gerar exceção id nao encontrado',
     function() {
         const EmprestimoAtualizar = {
-            nome:"Emprestimo 6", 
-            preco:600
+            nome:"Emprestimo 6"
         };
         const errIdNaoEncontrado = "ID nao encontrado";
         expect(() => cadastro.atualizar(6, EmprestimoAtualizar))
