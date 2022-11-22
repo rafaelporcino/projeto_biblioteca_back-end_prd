@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-     "start": "node appUsuario.js"    
+     "start": "node appSituacao.js"    
   },
   "keywords": [],
   "author": "",

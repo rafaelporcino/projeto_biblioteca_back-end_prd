@@ -34,19 +34,19 @@ async function main() {
     } catch(err) {
         console.log("Erro", err);
     }
-   /*
+  
     //Caso de sucesso
     try{
-        const usuarioAtualizado = await usuarioNegocio.atualizar(2, { id_situacao: '2', dt_entrega: '25/12/2022 00:00:01'});
+        const usuarioAtualizado = await usuarioNegocio.atualizar(2, { inome: 'João'});
         console.log("usuario Atualizado", usuarioAtualizado);
     }
     catch(err){
         console.log("Erro", err);
     }
 
-    //Caso de insucesso: Parametro preco é string
+    //Caso de insucesso: Parametro nome é string
     try{
-        const usuarioAtualizado = await usuarioNegocio.atualizar(3, { id_situacao: 2 , dt_entrega: '25/12/2022 00:00:00'});
+        const usuarioAtualizado = await usuarioNegocio.atualizar(3, { nome: 2 });
         console.log("usuario Atualizado", usuarioAtualizado);
     }
     catch(err){
@@ -55,8 +55,8 @@ async function main() {
 
     //Caso de insucesso: Id inexistente
     try{
-        const produtoAtualizado = await usuarioNegocio.atualizar(100, { nome: 'produto4', preco: 25});
-        console.log("Produto atualizado", produtoAtualizado);
+        const usuarioAtualizado = await usuarioNegocio.atualizar(100, { nome: 'Maria'});
+        console.log("Usuario atualizado", usuarioAtualizado);
     }
     catch(err){
         console.log("Erro", err);
@@ -65,8 +65,8 @@ async function main() {
     //Caso de sucesso
     try{
         //Trazer id válido
-        const produtoDeletado = await usuarioNegocio.deletar(16);
-        console.log("Produto deletado", produtoDeletado);
+        const usuarioDeletado = await usuarioNegocio.deletar(3);
+        console.log("Usuário deletado", usuarioDeletado);
     } catch(err){
         console.log("Erro", err);
     }
@@ -74,12 +74,12 @@ async function main() {
     //Caso de insucesso: Id inexistente
     try{
         //Trazer id inválido
-        const produtoDeletado = await usuarioNegocio.deletar(100);
-        console.log("Produto deletado", produtoDeletado);
+        const usuarioDeletado = await usuarioNegocio.deletar(100);
+        console.log("Usuário deletado", usuarioDeletado);
     } catch(err){
         console.log("Erro", err);
     }
-    */
+    
 }
 
 main();
