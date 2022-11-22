@@ -1,44 +1,44 @@
-const situacaoNegocio = require('./negocio/situacao_negocio')
+const emprestimoNegocio = require('./negocio/Emprestimo_negocio')
 
 
 async function main() {
       
-    const listaSituacao = await situacaoNegocio.listar();
-    console.log("Lista de Situacao",listaSituacao);
+    const listaEmprestimo = await emprestimoNegocio.listar();
+    console.log("Lista de Emprestimo",listaEmprestimo);
  
     try{ 
-        const situacao_1 = await situacaoNegocio.buscarPorId(1);
-        console.log("Situacao 1", situacao_1);
+        const Emprestimo_1 = await emprestimoNegocio.buscarPorId(1);
+        console.log("Emprestimo 1", Emprestimo_1);
     } catch (err) {                                                                           
         console.log("Erro", err); 
     }
 
     try{ 
-        const situacao_2 = await situacaoNegocio.buscarPorId(2);
-        console.log("Situacao 2 = ", situacao_2);
+        const Emprestimo_2 = await emprestimoNegocio.buscarPorId(2);
+        console.log("Emprestimo 2 = ", Emprestimo_2);
     } catch (err) {
         console.log("Erro", err);
     }
 
     //Inesistente  
     try{
-        const situacao_3 = await situacaoNegocio.buscarPorNome('Verificar');
-        console.log("Situacao 3 = 'Verificar'", situacao_3);
+        const Emprestimo_3 = await emprestimoNegocio.buscarPorNome('Verificar');
+        console.log("Emprestimo 3 = 'Verificar'", Emprestimo_3);
     } catch(err) {
         console.log("Erro", err);
     }
 
     try{
-        const situacao_4 = await situacaoNegocio.buscarPorNome('Disponivel');
-        console.log("Situacao 4 = 'Disponivel'", situacao_4);
+        const Emprestimo_4 = await emprestimoNegocio.buscarPorNome('Disponivel');
+        console.log("Emprestimo 4 = 'Disponivel'", Emprestimo_4);
     } catch(err) {
         console.log("Erro", err);
     }
   
     //Caso de sucesso
     try{
-        const situacaoAtualizado = await situacaoNegocio.atualizar(2, { descricao: 'Disponivel'});
-        console.log("Situacao Atualizado", situacaoAtualizado);
+        const EmprestimoAtualizado = await emprestimoNegocio.atualizar(2, { descricao: 'Disponivel'});
+        console.log("Emprestimo Atualizado", EmprestimoAtualizado);
     }
     catch(err){
         console.log("Erro", err);
@@ -46,8 +46,8 @@ async function main() {
 
     //Caso de insucesso: Parametro nome é string
     try{
-        const situacaoAtualizado = await situacaoNegocio.atualizar(3, { descricao: 2 });
-        console.log("Situacao Atualizado", situacaoAtualizado);
+        const EmprestimoAtualizado = await emprestimoNegocio.atualizar(3, { descricao: 2 });
+        console.log("Emprestimo Atualizado", EmprestimoAtualizado);
     }
     catch(err){
         console.log("Erro", err);
@@ -55,8 +55,8 @@ async function main() {
 
     //Caso de insucesso: Id inexistente
     try{
-        const situacaoAtualizado = await situacaoNegocio.atualizar(100, { nome: 'Verificar'});
-        console.log("Situacao atualizado", situacaoAtualizado);
+        const EmprestimoAtualizado = await emprestimoNegocio.atualizar(100, { nome: 'Verificar'});
+        console.log("Emprestimo atualizado", EmprestimoAtualizado);
     }
     catch(err){
         console.log("Erro", err);
@@ -65,8 +65,8 @@ async function main() {
     //Caso de sucesso
     try{
         //Trazer id válido
-        const situacaoDeletado = await situacaoNegocio.deletar(3);
-        console.log("Situação deletada", situacaoDeletado);
+        const EmprestimoDeletado = await emprestimoNegocio.deletar(3);
+        console.log("Situação deletada", EmprestimoDeletado);
     } catch(err){
         console.log("Erro", err);
     }
@@ -74,8 +74,8 @@ async function main() {
     //Caso de insucesso: Id inexistente
     try{
         //Trazer id inválido
-        const situacaoDeletado = await situacaoNegocio.deletar(100);
-        console.log("Situacao deletada", situacaoDeletado);
+        const EmprestimoDeletado = await emprestimoNegocio.deletar(100);
+        console.log("Emprestimo deletada", EmprestimoDeletado);
     } catch(err){
         console.log("Erro", err);
     }
