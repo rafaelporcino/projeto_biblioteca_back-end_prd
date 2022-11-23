@@ -3,7 +3,7 @@ const emprestimoPersistence = require('../persistence/emprestimo_persistence')
 
 
 async function inserir(emprestimo) {
-    if(emprestimo && emprestimo.nome && emprestimo.preco){
+    if(emprestimo && emprestimo.id_usuario && emprestimo.id_livro && emprestimo.id_situacao && emprestimo.dt_retirada && emprestimo.dt_devolucao_prevista){
         const emprestimoInserido = await emprestimoPersistence.inserir(emprestimo);
         return emprestimoInserido;
     }

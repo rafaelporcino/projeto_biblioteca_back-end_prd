@@ -1,44 +1,44 @@
-const situacaoNegocio = require('./negocio/situacao_negocio')
+const livroNegocio = require('./negocio/livro_negocio')
 
 
 async function main() {
       
-    const listaSituacao = await situacaoNegocio.listar();
-    console.log("Lista de Situacao",listaSituacao);
+    const listaLivro = await livroNegocio.listar();
+    console.log("Lista de Livro",listaLivro);
  
     try{ 
-        const situacao_1 = await situacaoNegocio.buscarPorId(1);
-        console.log("Situacao 1", situacao_1);
+        const Livro_1 = await livroNegocio.buscarPorId(1);
+        console.log("Livro 1", Livro_1);
     } catch (err) {                                                                           
         console.log("Erro", err); 
     }
 
     try{ 
-        const situacao_2 = await situacaoNegocio.buscarPorId(2);
-        console.log("Situacao 2 = ", situacao_2);
+        const Livro_2 = await livroNegocio.buscarPorId(2);
+        console.log("Livro 2 = ", Livro_2);
     } catch (err) {
         console.log("Erro", err);
     }
 
     //Inesistente  
     try{
-        const situacao_3 = await situacaoNegocio.buscarPorNome('Verificar');
-        console.log("Situacao 3 = 'Verificar'", situacao_3);
+        const Livro_3 = await livroNegocio.buscarPorNome('Verificar');
+        console.log("Livro 3 = 'Verificar'", Livro_3);
     } catch(err) {
         console.log("Erro", err);
     }
 
     try{
-        const situacao_4 = await situacaoNegocio.buscarPorNome('Disponivel');
-        console.log("Situacao 4 = 'Disponivel'", situacao_4);
+        const Livro_4 = await livroNegocio.buscarPorNome('Disponivel');
+        console.log("Livro 4 = 'Disponivel'", Livro_4);
     } catch(err) {
         console.log("Erro", err);
     }
   
     //Caso de sucesso
     try{
-        const situacaoAtualizado = await situacaoNegocio.atualizar(2, { descricao: 'Disponivel'});
-        console.log("Situacao Atualizado", situacaoAtualizado);
+        const LivroAtualizado = await livroNegocio.atualizar(2, { descricao: 'Disponivel'});
+        console.log("Livro Atualizado", LivroAtualizado);
     }
     catch(err){
         console.log("Erro", err);
@@ -46,8 +46,8 @@ async function main() {
 
     //Caso de insucesso: Parametro nome é string
     try{
-        const situacaoAtualizado = await situacaoNegocio.atualizar(3, { descricao: 2 });
-        console.log("Situacao Atualizado", situacaoAtualizado);
+        const LivroAtualizado = await livroNegocio.atualizar(3, { descricao: 2 });
+        console.log("Livro Atualizado", LivroAtualizado);
     }
     catch(err){
         console.log("Erro", err);
@@ -55,8 +55,8 @@ async function main() {
 
     //Caso de insucesso: Id inexistente
     try{
-        const situacaoAtualizado = await situacaoNegocio.atualizar(100, { nome: 'Verificar'});
-        console.log("Situacao atualizado", situacaoAtualizado);
+        const LivroAtualizado = await livroNegocio.atualizar(100, { nome: 'Verificar'});
+        console.log("Livro atualizado", LivroAtualizado);
     }
     catch(err){
         console.log("Erro", err);
@@ -65,8 +65,8 @@ async function main() {
     //Caso de sucesso
     try{
         //Trazer id válido
-        const situacaoDeletado = await situacaoNegocio.deletar(3);
-        console.log("Situação deletada", situacaoDeletado);
+        const LivroDeletado = await livroNegocio.deletar(3);
+        console.log("Situação deletada", LivroDeletado);
     } catch(err){
         console.log("Erro", err);
     }
@@ -74,8 +74,8 @@ async function main() {
     //Caso de insucesso: Id inexistente
     try{
         //Trazer id inválido
-        const situacaoDeletado = await situacaoNegocio.deletar(100);
-        console.log("Situacao deletada", situacaoDeletado);
+        const LivroDeletado = await livroNegocio.deletar(100);
+        console.log("Livro deletada", LivroDeletado);
     } catch(err){
         console.log("Erro", err);
     }

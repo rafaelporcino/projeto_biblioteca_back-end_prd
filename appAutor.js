@@ -1,4 +1,4 @@
-const emprestimoNegocio = require('./negocio/Emprestimo_negocio')
+const emprestimoNegocio = require('./negocio/emprestimo_negocio')
 
 
 async function main() {

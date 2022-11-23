@@ -3,7 +3,7 @@ const livroPersistence = require('../persistence/livro_persistence')
 
 
 async function inserir(livro) {
-    if(livro && livro.nome && livro.preco){
+    if(livro && livro.titulo ){
         const livroInserido = await livroPersistence.inserir(livro);
         return livroInserido;
     }

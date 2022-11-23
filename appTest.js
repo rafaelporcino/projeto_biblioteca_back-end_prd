@@ -2,15 +2,11 @@
 let cadastroEmprestimos = require('./persistence/emprestimo_persistence')
 
 
-let prod4 = {
-    nome:"Emprestimo 4"
-}
+let prod4 = { nome:"Emprestimo 4"}
 
 cadastroEmprestimos.inserir(prod4)
 
-let prod5 = {
-    nome:"Emprestimo 5"
-}
+let prod5 = {nome:"Emprestimo 5"}
 
 cadastroEmprestimos.inserir(prod5)
 
